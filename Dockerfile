@@ -10,4 +10,7 @@ RUN mkdir /app/
 WORKDIR /app/
 COPY . /app/
 RUN pip3 install -U -r requirements.txt
+RUN apt-get remove -y youtube-dl
+RUN  pip install --upgrade youtube_dl
+RUN youtube-dl -U
 CMD python3 main.py
